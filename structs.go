@@ -85,9 +85,16 @@ type SearchResult struct {
 	Aggregations json.RawMessage `json:"aggregations"`
 }
 
+// ResultTotal represent the total of the search hits
+type ResultTotal struct {
+	Relation string `json:"relation"`
+	Value    int    `json:"value"`
+}
+
 // ResultHits represents the result of the search hits
 type ResultHits struct {
-	Total    int     `json:"total"`
+	//Total    int     `json:"total"`
+	Total    ResultTotal     `json:"total"`
 	MaxScore float32 `json:"max_score"`
 	Hits     []struct {
 		Index     string              `json:"_index"`
